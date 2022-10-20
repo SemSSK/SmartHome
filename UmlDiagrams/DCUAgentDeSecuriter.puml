@@ -1,0 +1,17 @@
+@startuml
+    left to right direction
+    actor "agent de securité" as ads
+    rectangle "Smart Home" {
+        usecase "Consulter Camera" as consultCams
+        usecase "Consulter live camera" as consultLive
+        usecase "Consulter l'historique des cameras" as consultHistory
+        usecase "Envoyer notification d'alert" as sendNotif
+        usecase "s'authentifié" as login
+    }
+    ads --> consultCams
+    ads --> sendNotif
+    consultCams <.down- consultLive : <extends>
+    consultCams <.down- consultHistory : <extends>
+    sendNotif .down.> login : <include>
+    consultCams .down.> login : <include>
+@enduml

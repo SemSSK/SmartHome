@@ -1,0 +1,12 @@
+@startuml
+    left to right direction
+    actor "Objet Connecté" as oc
+    rectangle "Smart Home" {
+        usecase "Envoyer evenement" as sendEvent
+        usecase "Enregistrer information" as saveInfo
+        usecase "Envoyer notification d'alert" as sendNotif
+    }
+    oc --> sendEvent
+    oc --> saveInfo
+    oc --> sendNotif
+@enduml

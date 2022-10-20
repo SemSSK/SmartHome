@@ -1,0 +1,13 @@
+@startuml
+    actor admin as ad
+    actor proprietair as prop
+    actor habitant as hab
+    actor "objet connecter" as oc
+    actor "agent de sécurité" as ads 
+    (Smart Home) as sh
+    ad -down-> sh
+    prop --left-> sh
+    hab -down-> sh
+    ads --right-> sh
+    oc -up-> sh
+@enduml

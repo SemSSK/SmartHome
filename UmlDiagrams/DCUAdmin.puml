@@ -1,0 +1,25 @@
+@startuml
+    left to right direction
+    actor admin as ad
+    rectangle "Smart Home"{
+        usecase "update System" as update
+        usecase "Consulter Compte" as consCompt
+        usecase bloquer
+        usecase debloquer
+        usecase "s'authentifié" as login
+        usecase attribuer
+        usecase "consulter droit d'acces" as consAccess
+        usecase limiter
+        usecase attribuer
+    }
+    ad --> update
+    ad --> consCompt
+    ad --> consAccess
+    consCompt <.down. bloquer : <extends>
+    consCompt <.down. debloquer : <extends>
+    consAccess <.down. attribuer : <extends>
+    consAccess <.down. limiter : <extends>
+    update .down.> login : <includes>
+    consCompt .down.> login : <includes>
+    consAccess .down.> login : <includes>
+@enduml

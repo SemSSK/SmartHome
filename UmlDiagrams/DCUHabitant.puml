@@ -1,0 +1,23 @@
+@startuml
+    left to right direction
+        actor habitant as hab
+        rectangle "Smart Home"{
+            usecase "Gerer équipement" as geq
+            usecase "Gerer Camera" as manageCams
+            usecase "Consulter live camera" as consultLive
+            usecase "Consulter l'historique des cameras" as consultHistory
+            usecase activer
+            usecase desactiver
+            usecase modifier 
+            usecase "S'authentifié" as login 
+        }
+        hab --> manageCams
+        hab --> geq
+        geq <.down. desactiver : <extends>
+        geq <.down. activer : <extends>
+        geq <.down. modifier : <extends>
+        manageCams <.down. consultLive : <extends>
+        manageCams <.down. consultHistory : <extends>
+        geq .down..> login : <includes>
+        manageCams .down..> login : <includes>
+@enduml

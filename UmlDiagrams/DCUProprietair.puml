@@ -1,0 +1,21 @@
+@startuml
+    left to right direction
+    actor proprietair as prop
+    rectangle "Smart Home"{
+        usecase "Gerer system securité" as gss
+        usecase "Gerer Camera" as manageCams
+        usecase "Consulter live camera" as consultLive
+        usecase "Consulter l'historique des cameras" as consultHistory
+        usecase activer
+        usecase desactiver
+        usecase "S'authentifié" as login 
+    }
+    prop --> manageCams
+    prop --> gss
+    gss <.down. activer : <extends>
+    gss <.down. desactiver : <extends>
+    manageCams <.down. consultHistory : <extends>
+    manageCams <.down. consultLive : <extends>
+    gss .down..> login : <includes>
+    manageCams .down..> login : <includes>
+@enduml

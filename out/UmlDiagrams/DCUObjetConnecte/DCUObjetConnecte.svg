@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="263px" preserveAspectRatio="none" style="width:392px;height:263px;background:#FFFFFF;" version="1.1" viewBox="0 0 392 263" width="392px" zoomAndPan="magnify"><defs/><g><!--MD5=[8eb62d8c178553d84595041b03834873]
+cluster Smart Home--><g id="cluster_Smart Home"><rect fill="none" height="250" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1.0;" width="237" x="149" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="84" x="225.5" y="23.5332">Smart Home</text></g><g id="elem_sendEvent"><ellipse cx="267.3478" cy="62.8696" fill="#F1F1F1" rx="84.8478" ry="19.3696" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="204.3478" y="66.5981">Envoyer evenement</text></g><g id="elem_saveInfo"><ellipse cx="267.566" cy="138.9132" fill="#F1F1F1" rx="92.566" ry="20.9132" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="195.566" y="142.6417">Enregistrer information</text></g><g id="elem_sendNotif"><ellipse cx="267.7412" cy="217.9482" fill="#F1F1F1" rx="102.7412" ry="22.9482" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167" x="184.2412" y="221.6768">Envoyer notification d'alert</text></g><!--MD5=[c38e6713c6fc97f85fa64829d8e1320f]
+entity oc--><g id="elem_oc"><ellipse cx="55.5" cy="108.5" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M55.5,116.5 L55.5,143.5 M42.5,124.5 L68.5,124.5 M55.5,143.5 L42.5,158.5 M55.5,143.5 L68.5,158.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="6" y="174.5332">Objet Connecté</text></g><!--MD5=[e48b77a9b43445b6c021aa0e6296e564]
+link oc to sendEvent--><g id="link_oc_sendEvent"><path d="M105.14,115.09 C116.75,109.79 129.2,104.43 141,100 C161.77,92.19 184.96,84.96 205.7,78.99 " fill="none" id="oc-to-sendEvent" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="210.63,77.58,200.8785,76.1987,205.8213,78.9498,203.0702,83.8927,210.63,77.58" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[95f44e5daff69f25322b597553d27895]
+link oc to saveInfo--><g id="link_oc_saveInfo"><path d="M105.21,139 C124.47,139 147.32,139 169.67,139 " fill="none" id="oc-to-saveInfo" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="174.73,139,165.73,135,169.73,139,165.73,143,174.73,139" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[9e646369fb575fbe0b0e15477735a3a3]
+link oc to sendNotif--><g id="link_oc_sendNotif"><path d="M105.28,162 C116.88,167.18 129.3,172.47 141,177 C160.21,184.43 181.41,191.7 200.82,198 " fill="none" id="oc-to-sendNotif" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="205.72,199.59,198.393,193.0086,200.9639,198.0475,195.925,200.6183,205.72,199.59" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6bc9af5ce351058ca94b274dadecc65d]
+@startuml
+    left to right direction
+    actor "Objet Connecté" as oc
+    rectangle "Smart Home" {
+        usecase "Envoyer evenement" as sendEvent
+        usecase "Enregistrer information" as saveInfo
+        usecase "Envoyer notification d'alert" as sendNotif
+    }
+    oc - -> sendEvent
+    oc - -> saveInfo
+    oc - -> sendNotif
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 19:01:30 CEST 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>
