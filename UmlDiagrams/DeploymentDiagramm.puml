@@ -1,0 +1,36 @@
+@startuml
+    left to right direction
+    rectangle "Home" as h {
+        node "Router" as router
+        node "Objet Connecté 1" as oc1
+        node "Objet Connecté 2" as oc2
+        node "Objet Connecté 3" as oc3
+        node "Objet Connecté 4" as oc4
+        node "Objet Connecté n" as ocn
+        router -- oc1
+        router -- oc2
+        router -- oc3
+        router -- oc4
+        router -- ocn
+    }
+
+    cloud System
+    cloud Cloud{
+        database Database
+    }
+
+    rectangle "Admin,Agent de securité,Propriétaire,Habitant" as admin{
+        node ordinateur {
+            rectangle navigateur
+            rectangle "application desktop"
+        }
+        node Smartphone{
+            rectangle app
+        }
+    }
+
+    System -(0-- Database
+    ordinateur -(0-- System
+    Smartphone -(0-- System
+    System -0)- router
+@enduml
