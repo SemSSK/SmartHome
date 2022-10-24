@@ -1,0 +1,72 @@
+@startuml
+    allowmixing
+    hide <<hidden>>
+    component "Admin" as admin <<component>> 
+    component "Proprietair" as prop <<component>>
+    component "habitant" as hab <<component>>
+    component "Agent de securite" as ads <<component>>
+    component "Objet connecte" as oc <<component>> {
+        component hhh <<hidden>>
+        component "camera" as cams <<component>>
+        component "equipement de securite" as equiSecurité <<component>>
+        component "equipement de maison" as equiMaison <<component>>
+        object "Securité camera" as secCam <<interface>>{
+            activer
+            desactiver
+        }
+        hhh -d- cams : <<hidden>>
+        hhh -d- equiSecurité : <<hidden>>
+        hhh -l- equiMaison 
+        portout p1 
+        portout p2
+        portout p3
+        p1 -[hidden]up-> cams
+        p2 -[hidden]left-> equiSecurité
+        cams .right.> secCam : <<create>>
+        equiSecurité .left.> secCam : <<use>>
+    }
+
+ 
+    object "Gestionnaire des cameras" as camManage <<interface>> {
+        regarder live
+        regarder historique
+    }
+    object "Gestionnaire des equipment" as equManage <<interface>>{
+        activer
+        desactiver
+        modifierConfiguration
+    }
+    object "Gestionnaire de sécurité" as secureManage <<interface>>{
+        activer
+        desactiver
+        modifier
+    }
+    object "Gestionnaire des comptes" as accountManage <<interface>> {
+        bloquer
+        debloquer
+        attribuer
+        retirer
+    }
+
+    'Camera interfaces and relations
+    cams .down. p1
+    p1 .d.> camManage : <<create>>
+    prop .l.> camManage : <<use>>
+    hab .r.> camManage : <<use>>
+    ads .u.> camManage : <<use>>
+
+    'Equipment de securite interfaces and relations
+    equiSecurité .r. p2 
+    p2 .d.> secureManage : <<create>>
+    prop .u.> secureManage : <<use>>
+
+    'gestion des comptes
+    admin .u.> accountManage : <<use>>
+    prop .d.> accountManage : <<create>>
+    hab .d.> accountManage : <<create>>
+    ads .d.> accountManage : <<create>>
+
+    'gestion des equipment de maison
+    hab .u.> equManage : <<use>>
+    equiMaison .l.>  equManage :: <<create>>
+@enduml
