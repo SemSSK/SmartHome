@@ -1,0 +1,11 @@
+@startuml
+    rectangle "Acteurs principaux" {
+        actor admin as ad
+        actor proprietair as prop
+        actor habitant as hab
+        actor "objet connecter" as oc
+    }
+    rectangle "Acteurs potentiels"{
+        actor "agent de sécurité" as ads 
+    }
+@enduml

@@ -9,10 +9,12 @@
             usecase activer
             usecase desactiver
             usecase modifier 
+            usecase "Consulter Notification" as consultNotif
             usecase "S'authentifié" as login 
         }
         hab --> manageCams
         hab --> geq
+        hab --> consultNotif
         geq <.down. desactiver : <extends>
         geq <.down. activer : <extends>
         geq <.down. modifier : <extends>

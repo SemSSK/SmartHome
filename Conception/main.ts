@@ -112,20 +112,66 @@ const ScenarioLists = [
         []
     ),
     newDescriptionTextuelle(
-        "Consulter Compte",
-        "principal",
-        "Admin",
+        "Consulter Camera",
+        "Principal",
+        "Propriétaire | habitant | Agent de sécurité",
         "",
-        "Afficher une liste de comptes",
-        "Le CU s'authentifié",
-        "le system affiche une liste de comptes",
+        "pouvoire consulter live et historique",
+        "le CU s'authetifié",
+        "passage au CU consulter live",
         [
-            "l'admin clique sur comptes",
-            "le system affiche une liste de comptes"
+            "l'acteur clique sur consulter camera.",
+            "le system affiche la liste des camera.",
+            "l'acteur selection une camera.",
+            "le system affiche une fenetre de choix entre live ou historique",
+            "l'acteur clique sur live",
+            "CU live"
+        ],
+        [
+            "SN-5:l'acteur clique sur l'historique.",
+            "SN-5:le system affiche une liste de video enregistrer."
+        ],
+        []
+    ),
+    newDescriptionTextuelle(
+        "Enregistrer Information",
+        "Principal",
+        "Objet connecté",
+        "",
+        "notifier le systéme d'un evenement",
+        "détection d'un évenement (selon le type d'objet connecté)",
+        "l'habitant et le propriétaire est notifié de l'alerte",
+        [
+            "l'objet détect un evenement",
+            "l'objet trait l'evenement et le transform on message ",
+            "l'objet envoie le message d'enregistrement.",
+            "le system recoie le message.",
+            "e system enregistre le message."
         ],
         [],
         []
-    )
+    ),
+    newDescriptionTextuelle(
+        "Envoyer Alerte",
+        "Principal",
+        "Objet connecté",
+        "",
+        "notifier l'habitant et le proprietaire d'une alerte",
+        "détection d'un évenement d'alerte",
+        "l'habitant et le propriétaire est notifié de l'alerte",
+        [
+            "l'objet détect un evenement",
+            "l'objet trait l'evenement et le transform on message ",
+            "l'objet envoie le message d'alerte.",
+            "le system recoie le message.",
+            "le system analyse la porté de l'alerte.",
+            "le system notifie le propriétaire et l'habitant"
+        ],
+        [
+            "SN-6:si il n y a pas d'habitant il notifie seulement le propriété"
+        ],
+        []
+    ),
 ]
 
 console.log(ScenarioLists.map(e=>generateTableHtml(e)));

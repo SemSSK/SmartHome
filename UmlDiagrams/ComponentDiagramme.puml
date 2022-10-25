@@ -1,11 +1,12 @@
 @startuml
-    skinparam Linetype polyline
     allowmixing
     hide <<hidden>>
     component "Admin" as admin <<component>> 
     component "Proprietair" as prop <<component>>
     component "habitant" as hab <<component>>
     component "Agent de securite" as ads <<component>>
+    component "Evenement" as event <<component>>
+    
     component "Objet connecte" as oc <<component>> {
         component hhh <<hidden>>
         component "camera" as cams <<component>>
@@ -22,8 +23,8 @@
         portout p2
         p1 -[hidden]up-> cams
         p2 -[hidden]left-> equiSecurité
-        cams .right.> secCam : <<create>>
-        equiSecurité .left.> secCam : <<use>>
+        cams .--right--.> secCam :<<create>> 
+        equiSecurité .--left--.> secCam : <<use>>
     }
 
  
@@ -47,6 +48,11 @@
         attribuer
         retirer
     }
+    object "Gestionnaire des evenement" as eventManage <<interface>> {
+        "ecrire evenement d'alerte",
+        "ecrire evenement d'evenement",
+        consulter
+    }
 
     'Camera interfaces and relations
     cams .down. p1
@@ -67,6 +73,12 @@
     ads .d.> accountManage : <<create>>
 
     'gestion des equipment de maison
-    hab .u.> equManage : <<use>>
-    equiMaison .l.>  equManage : <<create>>
+    hab .u..> equManage : <<use>>
+    equiMaison .---l.>  equManage : <<create>>
+
+    'notification relations
+    event .d.> eventManage : <<create>>
+    oc .r.> eventManage : <<use>>
+    prop .d.> eventManage : <<use>>
+    hab .----.> eventManage : <<use>>
 @enduml

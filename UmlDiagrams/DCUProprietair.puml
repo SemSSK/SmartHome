@@ -9,9 +9,11 @@
         usecase activer
         usecase desactiver
         usecase "S'authentifié" as login 
+        usecase "Consulter Notification" as consultNotif
     }
     prop --> manageCams
     prop --> gss
+    prop --> consultNotif
     gss <.down. activer : <extends>
     gss <.down. desactiver : <extends>
     manageCams <.down. consultHistory : <extends>
