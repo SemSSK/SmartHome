@@ -1,4 +1,4 @@
-const dt = document.getElementById("t1");
+const dt = document.getElementById("t1")!;
 
 interface DescriptionTextuelle{
     nom: string,
@@ -42,13 +42,14 @@ const newDescriptionTextuelle = (
 const generateScenario = (scenario:Array<string>) => {
     return `
         <ol>
-            ${scenario.map(e=>`<li>${e}</li>`)}
+            ${scenario.map(e=>`<li>${e}</li>`).join('')}
         </ol>
     `
 }
 
 const generateTableHtml = (t:DescriptionTextuelle) => {
     return `
+        <h4>${t.nom}:</h4>
         <table class="tbl">
             <tr>
                 <td>Nom</td>
@@ -109,12 +110,24 @@ const ScenarioLists = [
         ],
         [],
         []
+    ),
+    newDescriptionTextuelle(
+        "Consulter Compte",
+        "principal",
+        "Admin",
+        "",
+        "Afficher une liste de comptes",
+        "Le CU s'authentifié",
+        "le system affiche une liste de comptes",
+        [
+            "l'admin clique sur comptes",
+            "le system affiche une liste de comptes"
+        ],
+        [],
+        []
     )
 ]
 
-console.log(ScenarioLists.map(e=>generateTableHtml(e)))
+console.log(ScenarioLists.map(e=>generateTableHtml(e)));
 
-
-if(dt){
-    dt.innerHTML = ScenarioLists.map(e=>generateTableHtml(e))[0];
-}
+dt.innerHTML = ScenarioLists.map(e=>generateTableHtml(e)).join('')!;

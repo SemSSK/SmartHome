@@ -1,5 +1,6 @@
-var dt = document.getElementById("t1");
-var newDescriptionTextuelle = function (nom, type, acteurPrincipal, acteurSecondair, objectif, precondition, postcondition, nominal, alternative, exception) {
+"use strict";
+const dt = document.getElementById("t1");
+const newDescriptionTextuelle = (nom, type, acteurPrincipal, acteurSecondair, objectif, precondition, postcondition, nominal, alternative, exception) => {
     return {
         nom: nom,
         type: type,
@@ -13,19 +14,69 @@ var newDescriptionTextuelle = function (nom, type, acteurPrincipal, acteurSecond
         exception: exception
     };
 };
-var generateScenario = function (scenario) {
-    return "\n        <ol>\n            ".concat(scenario.map(function (e) { return "<li>".concat(e, "</li>"); }), "\n        </ol>\n    ");
+const generateScenario = (scenario) => {
+    return `
+        <ol>
+            ${scenario.map(e => `<li>${e}</li>`).join('')}
+        </ol>
+    `;
 };
-var generateTableHtml = function (t) {
-    return "\n        <table class=\"tbl\">\n            <tr>\n                <td>Nom</td>\n                <td>".concat(t.nom, "</td>\n            </tr>\n            <tr>\n                <td>Type</td>\n                <td>").concat(t.type, "</td>\n            </tr>\n            <tr>\n                <td>Acteur principal</td>\n                <td>").concat(t.acteurPrincipal, "</td>\n            </tr>\n            <tr>\n                <td>Acteur secondair</td>\n                <td>").concat(t.acteurSecondair, "</td>\n            </tr>\n            <tr>\n                <td>Objectif</td>\n                <td>").concat(t.objectif, "</td>\n            </tr>\n            <tr>\n                <td>Precondition</td>\n                <td>").concat(t.precondition, "</td>\n            </tr>\n            <tr>\n                <td>Postcondition</td>\n                <td>").concat(t.postcondition, "</td>\n            </tr>\n            <tr>\n                <td>Scenario nominal</td>\n                <td>").concat(generateScenario(t.nominal), "</td>\n            </tr>\n            <tr>\n                <td>Scenario alternative</td>\n                <td>").concat(generateScenario(t.alternative), "</td>\n            </tr>\n            <tr>\n                <td>Scenario d'exception</td>\n                <td>").concat(generateScenario(t.exception), "</td>\n            </tr>\n        </table>\n    ");
+const generateTableHtml = (t) => {
+    return `
+        <h4>${t.nom}:</h4>
+        <table class="tbl">
+            <tr>
+                <td>Nom</td>
+                <td>${t.nom}</td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td>${t.type}</td>
+            </tr>
+            <tr>
+                <td>Acteur principal</td>
+                <td>${t.acteurPrincipal}</td>
+            </tr>
+            <tr>
+                <td>Acteur secondair</td>
+                <td>${t.acteurSecondair}</td>
+            </tr>
+            <tr>
+                <td>Objectif</td>
+                <td>${t.objectif}</td>
+            </tr>
+            <tr>
+                <td>Precondition</td>
+                <td>${t.precondition}</td>
+            </tr>
+            <tr>
+                <td>Postcondition</td>
+                <td>${t.postcondition}</td>
+            </tr>
+            <tr>
+                <td>Scenario nominal</td>
+                <td>${generateScenario(t.nominal)}</td>
+            </tr>
+            <tr>
+                <td>Scenario alternative</td>
+                <td>${generateScenario(t.alternative)}</td>
+            </tr>
+            <tr>
+                <td>Scenario d'exception</td>
+                <td>${generateScenario(t.exception)}</td>
+            </tr>
+        </table>
+    `;
 };
-var ScenarioLists = [
+const ScenarioLists = [
+    newDescriptionTextuelle("Consulter Compte", "principal", "Admin", "", "Afficher une liste de comptes", "Le CU s'authentifié", "le system affiche une liste de comptes", [
+        "l'admin clique sur comptes",
+        "le system affiche une liste de comptes"
+    ], [], []),
     newDescriptionTextuelle("Consulter Compte", "principal", "Admin", "", "Afficher une liste de comptes", "Le CU s'authentifié", "le system affiche une liste de comptes", [
         "l'admin clique sur comptes",
         "le system affiche une liste de comptes"
     ], [], [])
 ];
-console.log(ScenarioLists.map(function (e) { return generateTableHtml(e); }));
-if (dt) {
-    dt.innerHTML = ScenarioLists.map(function (e) { return generateTableHtml(e); })[0];
-}
+console.log(ScenarioLists.map(e => generateTableHtml(e)));
+dt.innerHTML = ScenarioLists.map(e => generateTableHtml(e)).join('');

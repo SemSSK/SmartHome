@@ -1,4 +1,5 @@
 @startuml
+    skinparam Linetype polyline
     allowmixing
     hide <<hidden>>
     component "Admin" as admin <<component>> 
@@ -19,7 +20,6 @@
         hhh -l- equiMaison 
         portout p1 
         portout p2
-        portout p3
         p1 -[hidden]up-> cams
         p2 -[hidden]left-> equiSecurité
         cams .right.> secCam : <<create>>
@@ -68,5 +68,5 @@
 
     'gestion des equipment de maison
     hab .u.> equManage : <<use>>
-    equiMaison .l.>  equManage :: <<create>>
+    equiMaison .l.>  equManage : <<create>>
 @enduml
