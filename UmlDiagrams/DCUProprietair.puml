@@ -14,10 +14,10 @@
     prop --> manageCams
     prop --> gss
     prop --> consultNotif
-    gss <.down. activer : <extends>
-    gss <.down. desactiver : <extends>
-    manageCams <.down. consultHistory : <extends>
-    manageCams <.down. consultLive : <extends>
+    gss <|-- activer : <extends>
+    gss <|-- desactiver : <extends>
+    manageCams <|-- consultHistory : <extends>
+    manageCams <|-- consultLive : <extends>
     gss .down..> login : <includes>
     manageCams .down..> login : <includes>
 @enduml

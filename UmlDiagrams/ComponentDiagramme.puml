@@ -23,7 +23,7 @@
         portout p2
         p1 -[hidden]up-> cams
         p2 -[hidden]left-> equiSecurité
-        cams .--right--.> secCam :<<create>> 
+        cams .--right--.> secCam :<<realise>> 
         equiSecurité .--left--.> secCam : <<use>>
     }
 
@@ -56,28 +56,28 @@
 
     'Camera interfaces and relations
     cams .down. p1
-    p1 .d.> camManage : <<create>>
+    p1 .d.> camManage : <<realise>>
     prop .l.> camManage : <<use>>
     hab .r.> camManage : <<use>>
     ads .u.> camManage : <<use>>
 
     'Equipment de securite interfaces and relations
     equiSecurité .r. p2 
-    p2 .d.> secureManage : <<create>>
+    p2 .d.> secureManage : <<realise>>
     prop .u.> secureManage : <<use>>
 
     'gestion des comptes
     admin .u.> accountManage : <<use>>
-    prop .d.> accountManage : <<create>>
-    hab .d.> accountManage : <<create>>
-    ads .d.> accountManage : <<create>>
+    prop .d.> accountManage : <<realise>>
+    hab .d.> accountManage : <<realise>>
+    ads .d.> accountManage : <<realise>>
 
     'gestion des equipment de maison
     hab .u..> equManage : <<use>>
-    equiMaison .---l.>  equManage : <<create>>
+    equiMaison .---l.>  equManage : <<realise>>
 
     'notification relations
-    event .d.> eventManage : <<create>>
+    event .d.> eventManage : <<realise>>
     oc .r.> eventManage : <<use>>
     prop .d.> eventManage : <<use>>
     hab .----.> eventManage : <<use>>

@@ -15,11 +15,11 @@
         hab --> manageCams
         hab --> geq
         hab --> consultNotif
-        geq <.down. desactiver : <extends>
-        geq <.down. activer : <extends>
-        geq <.down. modifier : <extends>
-        manageCams <.down. consultLive : <extends>
-        manageCams <.down. consultHistory : <extends>
+        geq <|-- desactiver
+        geq <|-- activer
+        geq <|-- modifier
+        manageCams <|-- consultLive
+        manageCams <|-- consultHistory
         geq .down..> login : <includes>
         manageCams .down..> login : <includes>
 @enduml

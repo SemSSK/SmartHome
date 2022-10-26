@@ -7,11 +7,13 @@
         usecase "Consulter l'historique des cameras" as consultHistory
         usecase "Envoyer notification d'alert" as sendNotif
         usecase "s'authentifié" as login
+        usecase "Consulter Notification" as consultNotif
     }
     ads --> consultCams
     ads --> sendNotif
-    consultCams <.down- consultLive : <extends>
-    consultCams <.down- consultHistory : <extends>
+    ads --> consultNotif
+    consultCams <|-- consultLive 
+    consultCams <|-- consultHistory 
     sendNotif .down.> login : <include>
     consultCams .down.> login : <include>
 @enduml

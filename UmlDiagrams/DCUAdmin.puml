@@ -15,10 +15,10 @@
     ad --> update
     ad --> consCompt
     ad --> consAccess
-    consCompt <.down. bloquer : <extends>
-    consCompt <.down. debloquer : <extends>
-    consAccess <.down. attribuer : <extends>
-    consAccess <.down. limiter : <extends>
+    consCompt <|-- bloquer 
+    consCompt <|-- debloquer 
+    consAccess <|-- attribuer  
+    consAccess <|-- limiter  
     update .down.> login : <includes>
     consCompt .down.> login : <includes>
     consAccess .down.> login : <includes>

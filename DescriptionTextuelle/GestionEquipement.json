@@ -1,15 +1,15 @@
 {
     "nom":"Gerer equipement",
     "type":"Principal",
-    "Acteur Principal":"Habitant |  ",
+    "Acteur Principal":"Habitant",
     "Acteur secondair":"",
-    "Objectif":"Avoir une liste des notification du system",
+    "Objectif":"modifier les parametre des equipement",
     "Precondition":"Le CU s'authentifié",
-    "Postcondition":"le system envoi une liste des notification à l'utilisateur",
+    "Postcondition":"le system modifie les parametre des equipement",
     "Scenario nominal":[
-        "l'utilisateur clique sur l'icon des notifications",
-        "le system recherche les notification de l'utilisateur dans la base des données",
-        "le system genere une liste",
+        "l'utilisateur clique sur l'icon de parametre",
+        "le system modifie les parametre ",
+        "le system genere une ",
         "le system envoi la liste des notification à l'utilisateur"
     ],
     "Scenario alternatif":[

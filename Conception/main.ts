@@ -11,6 +11,8 @@ interface DescriptionTextuelle{
     nominal: Array<string>,
     alternative: Array<string>,
     exception: Array<string>,
+    realise:string,
+    consume:string
 }
 
 const newDescriptionTextuelle = (
@@ -24,6 +26,8 @@ const newDescriptionTextuelle = (
         nominal: Array<string>,
         alternative: Array<string>,
         exception: Array<string>,
+        realise:string,
+        consume: string
     ) =>{
         return{
             nom:nom,
@@ -35,7 +39,9 @@ const newDescriptionTextuelle = (
             postcondition:postcondition,
             nominal:nominal,
             alternative:alternative,
-            exception:exception
+            exception:exception,
+            realise:realise,
+            consume:consume
         }
 };
 
@@ -109,7 +115,9 @@ const ScenarioLists = [
             "le system affiche une liste de comptes"
         ],
         [],
-        []
+        [],
+        "Habitant | propriétaire | Agent de sécurité",
+        "Administrateur",
     ),
     newDescriptionTextuelle(
         "Consulter Camera",
@@ -131,7 +139,9 @@ const ScenarioLists = [
             "SN-5:l'acteur clique sur l'historique.",
             "SN-5:le system affiche une liste de video enregistrer."
         ],
-        []
+        [],
+        "Objet connecté",
+        "Propriétaire | habitant | Agent de sécurité"
     ),
     newDescriptionTextuelle(
         "Enregistrer Information",
@@ -149,7 +159,9 @@ const ScenarioLists = [
             "e system enregistre le message."
         ],
         [],
-        []
+        [],
+        "Objet connecté | Agent de securité",
+        "Propriétaire | habitant"
     ),
     newDescriptionTextuelle(
         "Envoyer Alerte",
@@ -170,7 +182,9 @@ const ScenarioLists = [
         [
             "SN-6:si il n y a pas d'habitant il notifie seulement le propriété"
         ],
-        []
+        [],
+        "Objet connecté | Agent de securité",
+        "Propriétaire | habitant"
     ),
 ]
 
