@@ -1,0 +1,20 @@
+{
+    "nom":"Gerer equipement",
+    "type":"Principal",
+    "Acteur Principal":"Habitant |  ",
+    "Acteur secondair":"",
+    "Objectif":"Avoir une liste des notification du system",
+    "Precondition":"Le CU s'authentifié",
+    "Postcondition":"le system envoi une liste des notification à l'utilisateur",
+    "Scenario nominal":[
+        "l'utilisateur clique sur l'icon des notifications",
+        "le system recherche les notification de l'utilisateur dans la base des données",
+        "le system genere une liste",
+        "le system envoi la liste des notification à l'utilisateur"
+    ],
+    "Scenario alternatif":[
+        "SN-2:le system ne trouve aucune notification",
+        "SN-2:le system envoi une page affichan aucun notification"
+    ],
+    "Scenario d'exception":[]
+}
